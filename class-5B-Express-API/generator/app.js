@@ -9,6 +9,9 @@ var cors = require('cors');
 //Import internal module/project specific modules
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var incomeRouter = require('./routes/income');
+var expenseRouter = require('./routes/expense');
+var budgetRouter = require('./routes/budget');
 
 //Creating an instance express framework
 var app = express();
@@ -28,6 +31,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 //API endpoints
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/budget', budgetRouter);
+app.use('/income', incomeRouter);
+app.use('/expense', expenseRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
